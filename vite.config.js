@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
     vue2(),
     viteSingleFile(),
-    cssInjectedByJsPlugin(),
+    cssInjectedByJsPlugin()
   ],
   build: {
     copyPublicDir: false,
@@ -21,7 +21,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      vue: 'vue/dist/vue.min.js'
     }
   }
 })

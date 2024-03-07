@@ -28,7 +28,7 @@ import store from "@/store.json";
 let tempdata = {
   chart: {
     type: "Candles",
-    tf: "5m",
+    tf: "15m",
     data: [],
   },
   onchart: [],
@@ -90,16 +90,16 @@ export default {
       return {
         selectedticker: this.storeData.config.name,
         selectedperiod: "1 day",
-        selectedrange: "5 mins",
+        selectedrange: "15 mins",
         selectedmovavgs: [],
       };
     },
   },
   mounted() {},
   watch: {
-    "storeData.addChart": {
+    "storeData.chartData": {
       handler: function (after, before) {
-        this.chart.data.chart.data.push(after);
+        this.chart.data.chart.data = after;
       },
       deep: true,
     },
