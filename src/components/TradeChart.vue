@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <trading-vue
-      :title-txt="tooloptions.selectedticker"
-      :toolbar="true"
-      :overlays="overlays"
-      :data="chart"
-      :width="this.width"
-      :height="this.height"
-      :color-back="colors.colorBack"
-      :color-grid="colors.colorGrid"
-      :color-text="colors.colorText"
-      :color-title="colors.tvTitle"
-      :color-cross="colors.cross"
-      :color-candle-dw="colors.candle_dw"
-      :color-wick-dw="colors.wick_dw"
-      :index-based="true"
-      :id="id"
-      :ref="id"
-    ></trading-vue>
-  </div>
+  <trading-vue
+    :title-txt="tooloptions.selectedticker"
+    :toolbar="true"
+    :overlays="overlays"
+    :data="chart"
+    :width="this.width"
+    :height="this.height"
+    :color-back="colors.colorBack"
+    :color-grid="colors.colorGrid"
+    :color-text="colors.colorText"
+    :color-title="colors.tvTitle"
+    :color-cross="colors.cross"
+    :color-candle-dw="colors.candle_dw"
+    :color-wick-dw="colors.wick_dw"
+    :index-based="true"
+    :id="id"
+    :ref="id"
+  ></trading-vue>
 </template>
 <script>
 import TradingVue from "trading-vue-js";
