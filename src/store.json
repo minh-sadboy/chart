@@ -4,5 +4,9 @@
         "height": 100,
         "name": "Chart"
     },
-    "chartData": []
+    "chartData": [],
+    "indicators": {
+        "ema5": false,
+        "ema10": false
+    }
 }

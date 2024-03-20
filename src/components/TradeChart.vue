@@ -22,6 +22,7 @@
 import TradingVue from "trading-vue-js";
 import { DataCube } from "trading-vue-js";
 import store from "@/store.json";
+import { EMA } from "technicalindicators";
 
 let tempdata = {
   chart: {
@@ -92,12 +93,59 @@ export default {
         selectedmovavgs: [],
       };
     },
+    showEma5() {
+      return this.storeData.indicators.ema5;
+    },
+    showEma10() {
+      return this.storeData.indicators.ema10;
+    },
   },
   mounted() {},
   watch: {
     "storeData.chartData": {
       handler: function (after, before) {
         this.chart.data.chart.data = after;
+
+        const closeData = [];
+        after.forEach((d) => closeData.push(d[4]));
+        let onChartArray = [];
+
+        if (this.showEma5) {
+          const ema5Data = new EMA.calculate({ period: 5, values: closeData });
+          const ema5 = [];
+          after.forEach((d, i) => {
+            const emad = i > 5 ? ema5Data[i - 5] : undefined;
+            ema5.push([d[0], emad]);
+          });
+
+          onChartArray.push({
+            name: "EMA 5",
+            type: "EMA",
+            data: ema5,
+            settings: { color: "#FFA500" },
+          });
+        }
+
+        if (this.showEma10) {
+          const ema10Data = new EMA.calculate({
+            period: 10,
+            values: closeData,
+          });
+          const ema10 = [];
+          after.forEach((d, i) => {
+            const emad = i > 10 ? ema10Data[i - 10] : undefined;
+            ema10.push([d[0], emad]);
+          });
+
+          onChartArray.push({
+            name: "EMA 10",
+            type: "EMA",
+            data: ema10,
+            settings: { color: "#c973ff" },
+          });
+        }
+
+        this.chart.data.onchart = onChartArray;
       },
       deep: true,
     },

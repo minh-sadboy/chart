@@ -22,30 +22,32 @@ export default class TradeChart {
   setChartData(value) {
     store.chartData = value;
   }
+
+  showEMA5(value) {
+    store.indicators.ema5 = value;
+  }
+
+  showEMA10(value) {
+    store.indicators.ema10 = value;
+  }
 }
 
 // const a = new TradeChart(document.body);
 // a.setSize(500, 800);
 // console.log(store);
 
-// let i = 0
+// let i = 0;
+// const ab = [];
 // setInterval(() => {
-//   const af = 120 + i
-//   a.addChart([
-//     [
-//       1621846900000, 130, 127.0073013305664, 125.94000244140625,
-//       126.65499877929688, 11289029,
-//     ],
-//     [
-//       1621846900000, 130, 127.0073013305664, 125.94000244140625,
-//       126.65499877929688, 11289029,
-//     ],
-//     [
-//       1621846900000, 120, af, 125.94000244140625,
-//       126.65499877929688, 11289029,
-//     ],
+//   ab.push([
+//     1621846900000, 130, 127.0073013305664, 125.94000244140625,
+//     126.65499877929688, 11289029,
 //   ]);
-//   i += 1
+//   a.setChartData(ab);
+//   i += 1;
 // }, 10);
 
 
+// setTimeout(() => {
+//   a.showEMA10(true)
+// }, 1000);

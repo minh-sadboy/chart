@@ -7,6 +7,7 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "technicalindicators": "^3.1.0",
     "trading-vue-js": "1.0.2",
     "vue": "^2.7.7"
   },
